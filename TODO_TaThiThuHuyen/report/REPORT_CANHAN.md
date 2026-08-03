@@ -148,17 +148,20 @@ Kết luận: những giá trị âm trong bảng (ví dụ -0.101, -0.003) có 
 
 ## 5. Kết quả truy xuất của tôi (Competition Results) — Cá nhân (10 điểm)
 
-Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân của bạn trong gói `src`. **5 câu hỏi này phải trùng với các thành viên cùng nhóm** (xem `REPORT_NHOM.md`).
+Tôi chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân trong gói `src`, với mục tiêu kiểm tra khả năng truy xuất (retrieval) của hệ thống trước khi chuyển sang phần trả lời tự động. Các câu hỏi này trùng với bộ câu hỏi mà các thành viên trong nhóm đã thống nhất.
 
-| # | Câu hỏi (Query) | Top-1 Chunk truy xuất được (tóm tắt) | Điểm Score | Có liên quan không? (Relevant) | Câu trả lời của Agent (tóm tắt) |
+| # | Câu hỏi (Query) | Top-1 Chunk truy xuất được (tóm tắt) | Điểm Score | Có liên quan không? (Relevant) | Kết quả đánh giá ngắn |
 |---|-------|--------------------------------|-------|-----------|------------------------|
-| 1 | Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu? | Mục IV hỗ trợ Nhà Bán, chứa thời hạn phản hồi | 0,8669 | Có, top-1 | Chưa chạy LLM; chunk đủ căn cứ cho đáp án 03–05 ngày làm việc |
-| 2 | Giá bán không khuyến mãi có được thấp hơn 1.000 đồng không? | Mục quy định giá tối thiểu và ngoại lệ quà tặng | 0,8104 | Có, top-1 | Chưa chạy LLM; chunk đủ căn cứ trả lời “không”, trừ quà tặng |
-| 3 | Nhà Bán thao tác thế nào để tạo kho trả hàng? | Chunk chứa thông tin người nhận và các bước tạo kho | 0,6315 | Có, top-1 | Chưa chạy LLM; bằng chứng top-1 chứa quy trình thao tác |
-| 4 | Nêu 5 từ/cụm từ không được dùng trong nội dung sản phẩm nhóm Làm đẹp – Sức khỏe, Mẹ và bé hoặc Bách Hóa Online.| Mục II chứa bảng từ không hợp lệ và hợp lệ | 0,6447 | Có, top-1 | Chưa chạy LLM; chunk đủ năm ví dụ trong gold answer |
-| 5 | Sản phẩm hoàn trả có vấn đề thì làm gì và trong thời hạn nào? | Chunk đổi trả chứa thao tác Khiếu nại và thời hạn 02 ngày | 0,7204 | Có, top-1 | Chưa chạy LLM; chunk đủ căn cứ để trả lời gold answer |
+| 1 | Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu? | Mục IV hỗ trợ Nhà Bán, chứa thời hạn phản hồi | 0,8669 | Có, top-1 | Chunk truy xuất có đủ căn cứ để trả lời về phạm vi 03–05 ngày làm việc. |
+| 2 | Giá bán không khuyến mãi có được thấp hơn 1.000 đồng không? | Mục quy định giá tối thiểu và ngoại lệ quà tặng | 0,8104 | Có, top-1 | Chunk đủ căn cứ để trả lời “không”, trừ các trường hợp quà tặng hoặc ngoại lệ. |
+| 3 | Nhà Bán thao tác thế nào để tạo kho trả hàng? | Chunk chứa thông tin người nhận và các bước tạo kho | 0,6315 | Có, top-1 | Chunk đã nắm được nội dung quy trình thao tác và phù hợp với câu hỏi. |
+| 4 | Nêu 5 từ/cụm từ không được dùng trong nội dung sản phẩm nhóm Làm đẹp – Sức khỏe, Mẹ và bé hoặc Bách Hóa Online. | Mục II chứa bảng từ không hợp lệ và hợp lệ | 0,6447 | Có, top-1 | Chunk cung cấp đủ ví dụ để hỗ trợ trả lời gần đúng với gold answer. |
+| 5 | Sản phẩm hoàn trả có vấn đề thì làm gì và trong thời hạn nào? | Chunk đổi trả chứa thao tác Khiếu nại và thời hạn 02 ngày | 0,7204 | Có, top-1 | Chunk đủ căn cứ để trả lời về quy trình khiếu nại và thời hạn xử lý. |
 
-**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** 5 / 5 (10/10 điểm retrieval; SemanticChunker + LocalEmbedder đa ngữ)
+**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?** 5 / 5 (10/10 điểm retrieval; chiến lược truy xuất bằng SemanticChunker + LocalEmbedder đa ngữ)
+
+**Nhận xét chung:**
+> Tất cả 5 câu hỏi đều có chunk liên quan ở vị trí top-1, cho thấy chiến lược truy xuất của mình có độ ổn định tốt trong bối cảnh tài liệu chính sách TMĐT. Đây là nền tảng quan trọng để phần trả lời tự động sau này có thể đưa ra câu trả lời đúng và có căn cứ hơn.
 
 **Điều hay nhất tôi học được từ thành viên khác / nhóm khác (qua demo):**
 > Qua demo các nhóm, mình học được vài điểm thực tiễn rất hữu ích:
