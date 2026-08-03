@@ -179,23 +179,20 @@ Lệnh được sử dụng:
 pytest tests/ -v
 ```
 
-Dán output thực tế vào đây:
+Kết quả chạy thực tế ngày 03/08/2026 trên Python 3.11.4:
 
 ```text
-[CẦN THAY BẰNG TOÀN BỘ OUTPUT CỦA LỆNH: pytest tests/ -v]
+platform win32 -- Python 3.11.4, pytest-9.1.1
+collected 48 items
+tests/test_solution.py ................................................ [100%]
+============================= 48 passed in 0.31s ==============================
 ```
 
-**Số lượng bài test vượt qua:** `[CẦN THAY]` / 42
+Toàn bộ các nhóm kiểm thử đều đạt: cấu trúc project, các chunker (fixed-size,
+sentence, recursive, semantic, agentic, parent-child), cosine similarity,
+EmbeddingStore (add/search/filter/delete), KnowledgeBaseAgent và comparator.
 
-Ví dụ, nếu toàn bộ test đều vượt qua:
-
-```text
-============================== 42 passed in ...s ==============================
-```
-
-Khi đó ghi:
-
-**Số lượng bài test vượt qua:** 42 / 42
+**Số lượng bài test vượt qua: 48 / 48.**
 
 
 ---
@@ -206,11 +203,16 @@ Tôi lựa chọn năm cặp câu có mức độ tương đồng khác nhau đ�
 
 | Cặp | Câu A                                                   | Câu B                                                                 | Dự đoán       |       Điểm thực tế | Đúng?        |
 | --- | ------------------------------------------------------- | --------------------------------------------------------------------- | ------------- | -----------------: | ------------ |
-| 1   | Sinh viên phải đăng ký môn học trước thời hạn.          | Học viên cần hoàn thành đăng ký học phần trước ngày hết hạn.          | Cao           | `[CẦN CHẠY MODEL]` | `[CẦN ĐIỀN]` |
-| 2   | Hệ thống sử dụng vector embedding để tìm kiếm tài liệu. | Công cụ chuyển văn bản thành vector để thực hiện truy xuất ngữ nghĩa. | Cao           | `[CẦN CHẠY MODEL]` | `[CẦN ĐIỀN]` |
-| 3   | Hôm nay trời mưa rất lớn.                               | Cách tính cosine similarity giữa hai vector.                          | Thấp          | `[CẦN CHẠY MODEL]` | `[CẦN ĐIỀN]` |
-| 4   | Tôi không thích môn học này.                            | Tôi thích môn học này.                                                | Tương đối cao | `[CẦN CHẠY MODEL]` | `[CẦN ĐIỀN]` |
-| 5   | Python là một ngôn ngữ lập trình phổ biến.              | Java được sử dụng để phát triển nhiều hệ thống phần mềm.              | Trung bình    | `[CẦN CHẠY MODEL]` | `[CẦN ĐIỀN]` |
+| 1   | Sinh viên phải đăng ký môn học trước thời hạn.          | Học viên cần hoàn thành đăng ký học phần trước ngày hết hạn.          | Cao           | -0,1158 | Không |
+| 2   | Hệ thống sử dụng vector embedding để tìm kiếm tài liệu. | Công cụ chuyển văn bản thành vector để thực hiện truy xuất ngữ nghĩa. | Cao           | 0,0164  | Không |
+| 3   | Hôm nay trời mưa rất lớn.                               | Cách tính cosine similarity giữa hai vector.                          | Thấp          | -0,0778 | Có    |
+| 4   | Tôi không thích môn học này.                            | Tôi thích môn học này.                                                | Tương đối cao | 0,1253 | Không |
+| 5   | Python là một ngôn ngữ lập trình phổ biến.              | Java được sử dụng để phát triển nhiều hệ thống phần mềm.              | Trung bình    | 0,0755 | Không |
+
+Các số liệu trên được chạy bằng `_mock_embed` có sẵn trong project, sau đó tính
+cosine similarity đúng theo công thức trong phần mã bên dưới. Vì mock embedder
+sinh vector xác định theo chuỗi, các điểm số này chỉ dùng để kiểm chứng luồng
+tính toán, không phải phép đo chất lượng ngữ nghĩa.
 
 Để lấy điểm thực tế, có thể sử dụng đoạn mã tương tự sau và thay tên embedding model theo project:
 
@@ -264,54 +266,41 @@ for index, (sentence_a, sentence_b) in enumerate(sentence_pairs, start=1):
 
 #### Kết quả nào bất ngờ nhất? Điều này nói gì về cách embeddings biểu diễn ý nghĩa?
 
-Kết quả bất ngờ nhất đối với tôi là cặp câu “Tôi không thích môn học này” và “Tôi thích môn học này” có thể vẫn nhận được cosine similarity tương đối cao, mặc dù ý nghĩa về thái độ là trái ngược nhau. Nguyên nhân là hai câu có gần như cùng chủ đề và cấu trúc từ vựng; điều này cho thấy embedding thường biểu diễn mạnh về chủ đề và ngữ cảnh tổng quát nhưng đôi khi chưa phân biệt tốt các yếu tố nhỏ như phủ định hoặc quan điểm đối lập.
+Kết quả bất ngờ nhất là cặp 1: hai câu có nghĩa gần như tương đương nhưng điểm
+mock lại là `-0,1158`. Kết quả này xác nhận cảnh báo của lab: `_mock_embed`
+không biểu diễn ngữ nghĩa và không nên dùng để đánh giá chất lượng retrieval.
+Khi đánh giá chính thức, cần dùng `EMBEDDING_PROVIDER=local` hoặc backend thật;
+khi đó cặp 1 được kỳ vọng có điểm cao hơn hẳn cặp 3.
 
 ---
 
 ## 5. Kết quả truy xuất của tôi (Competition Results) — Cá nhân (10 điểm)
 
-Năm câu hỏi dưới đây là bộ câu hỏi mẫu phù hợp với chủ đề Embedding và Vector Store. Trước khi nộp, cần thay chúng bằng đúng năm câu hỏi đã được thống nhất trong `REPORT_NHOM.md` nếu bộ câu hỏi của nhóm khác với bảng này.
+Tôi chạy năm câu hỏi chính thức trong `data/k4_ecommerce/benchmark_queries.json`
+trên corpus 130 chunks, dùng `FixedSizeChunker(chunk_size=400, overlap=50)` và
+`_mock_embed`. Riêng câu 3 có áp dụng filter `customer_role=seller` theo dữ liệu
+benchmark. Cột “đúng tài liệu trong top-3” được đối chiếu với `document_id` đã
+được quy định trong benchmark.
 
-|  # | Câu hỏi (Query)                                        | Top-1 Chunk truy xuất được (tóm tắt)                                                                         |   Điểm Score | Có liên quan không? | Câu trả lời của Agent (tóm tắt)                                                                      |
-| -: | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | -----------: | ------------------- | ---------------------------------------------------------------------------------------------------- |
-|  1 | Cosine similarity là gì và được tính như thế nào?      | Chunk giải thích cosine similarity là độ tương đồng dựa trên góc giữa hai vector và cung cấp công thức tính. | `[CẦN THAY]` | Có                  | Agent giải thích cosine similarity, công thức tích vô hướng và ý nghĩa của score gần 1.              |
-|  2 | Tại sao cần overlap khi chia tài liệu thành các chunk? | Chunk mô tả overlap giúp duy trì ngữ cảnh tại ranh giới giữa hai chunk liên tiếp.                            | `[CẦN THAY]` | Có                  | Agent giải thích overlap hạn chế mất thông tin khi câu hoặc ý bị chia ở cuối chunk.                  |
-|  3 | Recursive chunking hoạt động như thế nào?              | Chunk mô tả việc chia văn bản lần lượt theo đoạn, dòng, câu, từ và cuối cùng là ký tự.                       | `[CẦN THAY]` | Có                  | Agent trình bày quá trình chia đệ quy và base case khi đoạn đã nhỏ hơn `chunk_size`.                 |
-|  4 | Vector store lưu trữ những thành phần nào?             | Chunk mô tả việc lưu nội dung, embedding, metadata và document ID.                                           | `[CẦN THAY]` | Có                  | Agent cho biết vector store lưu vector cùng dữ liệu gốc và metadata để hỗ trợ truy xuất, lọc và xóa. |
-|  5 | Agent nên làm gì khi tài liệu không chứa câu trả lời?  | Chunk hướng dẫn agent chỉ dùng retrieved context và không tạo thông tin ngoài nguồn.                         | `[CẦN THAY]` | Có                  | Agent thông báo không có đủ thông tin trong cơ sở tri thức thay vì tự suy đoán câu trả lời.          |
+| # | Câu hỏi (Query) | Top-1 thực tế | Score | Top-1 liên quan? | Đúng tài liệu trong top-3? | Kết quả Agent |
+| -: | --- | --- | ---: | --- | --- | --- |
+| 1 | Tiki phản hồi khiếu nại của Nhà Bán trong bao lâu? | `tiki-noi-dung-mo-ta-san-pham`; đoạn về các lỗi nội dung mô tả. | 0,3749 | Không | Không | `demo_llm` chỉ trả preview của prompt, nên không đánh giá là câu trả lời có căn cứ. |
+| 2 | Giá sản phẩm không khuyến mãi có được thấp hơn 1.000 đồng không? | `tiki-quy-dinh-gia-san-pham`; hướng dẫn cập nhật hàng loạt giá. | 0,3011 | Có (đúng tài liệu) | Có | Có đủ ngữ cảnh từ tài liệu giá, nhưng demo LLM không sinh câu trả lời nghiệp vụ hoàn chỉnh. |
+| 3 | Nhà Bán tạo kho trả hàng như thế nào? | `tiki-quy-dinh-gia-san-pham`; đoạn về giá khuyến mãi. | 0,3072 | Không | Không | Không dùng để kết luận chất lượng generation vì retrieved context sai. |
+| 4 | Liệt kê 5 từ/cụm từ bị cấm cho ngành Làm đẹp – Sức khỏe/Mẹ và bé/Bách Hóa Online. | `tiki-doi-tra-bao-hanh`; đoạn về đóng gói hàng đổi trả. | 0,3207 | Không | Không | Không dùng để kết luận chất lượng generation vì retrieved context sai. |
+| 5 | Sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì? | `tiki-tieu-chuan-san-pham`; đoạn về tiêu chuẩn sản phẩm. | 0,2715 | Không | Không | Không dùng để kết luận chất lượng generation vì retrieved context sai. |
 
-### Hướng dẫn lấy kết quả thực tế
+`KnowledgeBaseAgent` được kiểm thử trong unit test và trả về chuỗi không rỗng,
+nhưng demo hiện dùng `demo_llm`, một hàm chỉ hiển thị preview prompt. Vì vậy tôi
+không gán cho agent các câu trả lời nghiệp vụ mà nó chưa thật sự sinh ra. Đây là
+ranh giới rõ ràng giữa kiểm thử pipeline và đánh giá generation bằng LLM thật.
 
-Với mỗi query, cần ghi lại:
+**Số câu hỏi có đúng tài liệu trong top-3: 1 / 5.**
 
-1. Nội dung của chunk có score cao nhất.
-2. Score cosine similarity thực tế.
-3. Top-1 chunk có liên quan hay không.
-4. Trong top-3 có ít nhất một chunk liên quan hay không.
-5. Câu trả lời thực tế do `KnowledgeBaseAgent` sinh ra.
-
-Ví dụ output có thể được ghi như sau:
-
-```text
-Query: Tại sao cần overlap khi chia tài liệu?
-
-Top-1:
-Score: 0.8124
-Document ID: chunking-guide
-Content: Overlap giữ lại một phần nội dung của chunk trước trong chunk sau...
-
-Agent answer:
-Overlap giúp bảo toàn ngữ cảnh tại ranh giới giữa các chunk...
-```
-
-**Bao nhiêu câu hỏi trả về chunk có liên quan trong top-3?**
-`[CẦN CHẠY 5 QUERY VÀ ĐIỀN KẾT QUẢ]` / 5
-
-Nếu cả năm câu đều có ít nhất một chunk liên quan trong top-3 thì ghi:
-
-```text
-5 / 5
-```
+Kết quả thấp này là kết quả chạy thật với mock embedder, không phải lỗi che giấu.
+Nó cho thấy benchmark ngữ nghĩa cần dùng local multilingual embedder trước khi
+đưa ra kết luận về chiến lược chunking. Câu 2 truy xuất đúng tài liệu; bốn câu
+còn lại không đúng tài liệu kỳ vọng trong top-3.
 
 #### Điều hay nhất tôi học được từ thành viên khác hoặc nhóm khác qua demo
 
@@ -327,26 +316,23 @@ Tôi cũng học được rằng cần đánh giá riêng retrieval và generati
 | ----------------------------------------------- | -------------------------: |
 | Khởi động (Warm-up)                             |                      5 / 5 |
 | Hướng tiếp cận của tôi (My Approach)            |                    10 / 10 |
-| Hoàn thiện code (Core Implementation — tests)   | `[SỐ TEST PASS / 42 × 30]` |
-| Dự đoán độ tương tự (Similarity Predictions)    |       `[CẦN ĐÁNH GIÁ]` / 5 |
-| Kết quả truy xuất của tôi (Competition Results) |      `[CẦN ĐÁNH GIÁ]` / 10 |
-| **Tổng phần cá nhân**                           |      **`[CẦN TÍNH]` / 60** |
+| Hoàn thiện code (Core Implementation — tests)   | 30 / 30 |
+| Dự đoán độ tương tự (Similarity Predictions)    | 1 / 5 |
+| Kết quả truy xuất của tôi (Competition Results) | 2 / 10 |
+| **Tổng phần cá nhân**                           | **48 / 60** |
 
 ### Công thức tự tính điểm phần test
 
 Nếu điểm phần implementation được tính tỷ lệ theo số bài test vượt qua:
 
 ```text
-Điểm test = số test pass / 42 × 30
+Điểm test = số test pass / tổng số test × 30
 ```
 
 Ví dụ:
 
 ```text
-42 test pass: 42 / 42 × 30 = 30 điểm
-40 test pass: 40 / 42 × 30 ≈ 28,57 điểm
-35 test pass: 35 / 42 × 30 = 25 điểm
-30 test pass: 30 / 42 × 30 ≈ 21,43 điểm
+48 test pass: 48 / 48 × 30 = 30 điểm
 ```
 
 ### Kết luận cá nhân
