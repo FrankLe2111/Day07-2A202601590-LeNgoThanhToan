@@ -1,0 +1,162 @@
+{
+  "provider": "mock",
+  "backend": "mock embeddings fallback",
+  "chunker": "SemanticChunker(threshold=0.35, min=250, max=900)",
+  "top_k": 3,
+  "hits": 2,
+  "retrieval_score": 4,
+  "queries": [
+    {
+      "id": 1,
+      "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-doi-tra-bao-hanh",
+      "top_k_hit": false,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.2531991657469413,
+          "document_id": "tiki-quyen-nghia-vu-nha-ban",
+          "chunk_index": 3,
+          "preview": "● Giới thiệu dịch vụ Tiki lấy hàng tại kho Nhà Bán - Mô hình lưu kho Tiki (FBT) ● Giới thiệu Gian hàng chính hãng/Official Store ● Giới thiệu về Trung tâm bán hàng (Seller Center) ● Quyền và nghĩa vụ của Nhà Bán và Tiki Nhà Bán cần nắm rõ quyền và nghĩa vụ khi tham gia bán hàng trên sàn TMĐT Tiki."
+        },
+        {
+          "rank": 2,
+          "score": 0.2134627761950594,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 33,
+          "preview": "8. Vi phạm giá ảo có bị tính là 1 vi phạm nếu Nhà Bán tham gia Chương trình khuyến mãi của Tiki không? Có. Nếu Nhà Bán tăng giá bán trước khuyến mãi một cách bất hợp lý khi tham gia bất cứ chương trình khuyến mãi nào sẽ bị tính là giá ảo (Chương trình khuyến mãi của Tiki và/hoặc Chương trình khuyến "
+        },
+        {
+          "rank": 3,
+          "score": 0.21292611081262622,
+          "document_id": "tiki-quyen-nghia-vu-nha-ban",
+          "chunk_index": 20,
+          "preview": "Mọi thông báo trên Trung Tâm Bán Hàng (Seller Center) là thông báo chính thức của Tiki, Nhà Bán có trách nhiệm đọc, tìm hiểu và thường xuyên cập nhật các thông tin trên Seller Center. Nội dung này có hữu ích với bạn không? Gửi đánh giá Đánh giá trung bình: 2 / 5. Số lượt đánh giá: 6"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-quy-dinh-gia-san-pham",
+      "top_k_hit": false,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.4698162692543746,
+          "document_id": "tiki-tieu-chuan-san-pham",
+          "chunk_index": 9,
+          "preview": "Sản phẩm lẫn tạp chất hoặc bị côn trùng cắn… và các trường hợp khác được Tiki quyết định theo từng thời điểm. Sản phẩm nhận nhiều lượt đánh giá, nhận xét tiêu cực về chất lượng sản phẩm và bị đổi trả nhiều lần do lỗi Nhà Bán. Sản phẩm “Ổ cắm điện” nhận được nhiều lượt đánh giá tiêu cực về chất lượng"
+        },
+        {
+          "rank": 2,
+          "score": 0.2851679413230333,
+          "document_id": "tiki-noi-dung-mo-ta-san-pham",
+          "chunk_index": 2,
+          "preview": "● Quy chuẩn về thương hiệu ● Quy chuẩn về tên sản phẩm ● Quy chuẩn về hình ảnh sản phẩm ● Quy định về danh mục ngành hàng ● Quy định về thuộc tính sản phẩm ● Quy chuẩn về nội dung mô tả sản phẩm ● Quy định về hồ sơ pháp lý khi đăng sản phẩm ● Quy định từ khóa trong nội dung sản phẩm"
+        },
+        {
+          "rank": 3,
+          "score": 0.2851679413230333,
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_index": 2,
+          "preview": "● Quy chuẩn về thương hiệu ● Quy chuẩn về tên sản phẩm ● Quy chuẩn về hình ảnh sản phẩm ● Quy định về danh mục ngành hàng ● Quy định về thuộc tính sản phẩm ● Quy chuẩn về nội dung mô tả sản phẩm ● Quy định về hồ sơ pháp lý khi đăng sản phẩm ● Quy định từ khóa trong nội dung sản phẩm"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+      "metadata_filter": {
+        "customer_role": "seller"
+      },
+      "expected_document_id": "tiki-kho-tra-hang",
+      "top_k_hit": true,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.28658957999918133,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 15,
+          "preview": "Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng) Đối với trường hợp sản phẩm có nhiều lựa chọn, giá của từng lựa chọn không được chênh lệch nhau quá 20%. 2. Đối với các sản phẩm được cài đặt giảm giá tự tạo bởi Nhà Bán Thời gian sản phẩm chạy giảm giá không quá 180 ngày. Sau "
+        },
+        {
+          "rank": 2,
+          "score": 0.27046739415503407,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 5,
+          "preview": "Giá bán sản phẩm hiển thị trên trang sản phẩm sẽ khác nhau, tùy vào nhu cầu cài đặt giá sản phẩm của Nhà Bán (có áp dụng mức giảm giá bán hay không), bao gồm: (1) Khi Nhà Bán đăng bán sản phẩm mà không cài đặt khuyến mãi nào, trang hiển thị của sản phẩm chỉ hiển thị một giá duy nhất là Giá bán."
+        },
+        {
+          "rank": 3,
+          "score": 0.253029509160541,
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_index": 7,
+          "preview": "Địa chỉ Nhà Bán để Tiki tới trả hàng (dành cho các mô hình khác ngoại trừ mô hình FBT). Thông tin người nhận hàng (gồm tên, số điện thoại và email liên hệ). Nhà Bán thao tác như sau: Bước 1: Có 2 cách để tạo kho trả hàng: Cách 1: Tại Seller Center, Nhà Bán chọn Thông tin nhà bán > Chi tiết."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "query": "Nêu 5 từ hoặc cụm từ không được dùng trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe, Mẹ và bé hoặc Bách Hóa Online.",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-tu-khoa-noi-dung-san-pham",
+      "top_k_hit": true,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.34309047648277297,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 32,
+          "preview": "Lưu ý: Văn bản hợp lệ từ Thương hiệu/Nhà phân phối/Nhà cung cấp có hiệu lực trong vòng 03 tháng kể từ ngày phát hành. Bản scan phải có chữ ký, mộc đỏ và đóng giáp lai (nếu gồm nhiều trang) trên văn bản. Đối với thông báo từ Nhà phân phối/Nhà cung cấp, Nhà Bán cần cung cấp thêm Giấy ủy quyền từ hãng "
+        },
+        {
+          "rank": 2,
+          "score": 0.30832335772396363,
+          "document_id": "tiki-quyen-nghia-vu-nha-ban",
+          "chunk_index": 20,
+          "preview": "Mọi thông báo trên Trung Tâm Bán Hàng (Seller Center) là thông báo chính thức của Tiki, Nhà Bán có trách nhiệm đọc, tìm hiểu và thường xuyên cập nhật các thông tin trên Seller Center. Nội dung này có hữu ích với bạn không? Gửi đánh giá Đánh giá trung bình: 2 / 5. Số lượt đánh giá: 6"
+        },
+        {
+          "rank": 3,
+          "score": 0.2905734505806271,
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_index": 4,
+          "preview": "I. TỔNG QUAN VỀ TỪ KHÓA VI PHẠM Nhà Bán có trách nhiệm đảm bảo gian hàng của mình không đăng bán các sản phẩm vi phạm quy định của pháp luật nước Việt Nam. Nhà Bán không được đăng tải bất kỳ sản phẩm (hay hình ảnh) có từ khóa bị hạn chế hoặc cấm bởi chính quyền địa phương."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì và trong thời hạn nào?",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-doi-tra-bao-hanh",
+      "top_k_hit": false,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.3413697511592323,
+          "document_id": "tiki-quyen-nghia-vu-nha-ban",
+          "chunk_index": 7,
+          "preview": "Chịu trách nhiệm với các hoạt động quảng cáo của mình. Không kinh doanh Hàng hóa bị cấm hoặc chưa đủ điều kiện lưu thông, cấm nhập khẩu, cấm phân phối, danh mục Hàng hóa hạn chế theo quy định pháp luật, hàng giả, hàng nhái, hàng vi phạm sở hữu trí tuệ."
+        },
+        {
+          "rank": 2,
+          "score": 0.3377026122723691,
+          "document_id": "tiki-noi-dung-mo-ta-san-pham",
+          "chunk_index": 2,
+          "preview": "● Quy chuẩn về thương hiệu ● Quy chuẩn về tên sản phẩm ● Quy chuẩn về hình ảnh sản phẩm ● Quy định về danh mục ngành hàng ● Quy định về thuộc tính sản phẩm ● Quy chuẩn về nội dung mô tả sản phẩm ● Quy định về hồ sơ pháp lý khi đăng sản phẩm ● Quy định từ khóa trong nội dung sản phẩm"
+        },
+        {
+          "rank": 3,
+          "score": 0.3377026122723691,
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_index": 2,
+          "preview": "● Quy chuẩn về thương hiệu ● Quy chuẩn về tên sản phẩm ● Quy chuẩn về hình ảnh sản phẩm ● Quy định về danh mục ngành hàng ● Quy định về thuộc tính sản phẩm ● Quy chuẩn về nội dung mô tả sản phẩm ● Quy định về hồ sơ pháp lý khi đăng sản phẩm ● Quy định từ khóa trong nội dung sản phẩm"
+        }
+      ]
+    }
+  ]
+}

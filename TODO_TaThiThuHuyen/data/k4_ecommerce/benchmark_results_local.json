@@ -1,0 +1,162 @@
+{
+  "provider": "local",
+  "backend": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "chunker": "PolicySectionChunker(chunk_size=900)",
+  "top_k": 3,
+  "hits": 4,
+  "retrieval_score": 8,
+  "queries": [
+    {
+      "id": 1,
+      "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-doi-tra-bao-hanh",
+      "top_k_hit": true,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.8685577991006845,
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_index": 8,
+          "preview": "IV. TIKI HỖ TRỢ NHÀ BÁN NHƯ THẾ NÀO? Tiki khuyến khích Nhà Bán Hình ảnh minh hoạ Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi tại Seller Center, mục Đơn hàng > Đổi trả bảo hành > Tab Đang xử lý khiếu nại trong 03 – 05 ngày làm việc. Trường hợp Nhà Bán khiếu nại Tiki hoàn tiền nhanh cho Khách Hàng chư"
+        },
+        {
+          "rank": 2,
+          "score": 0.7147871576691228,
+          "document_id": "tiki-quyen-nghia-vu-nha-ban",
+          "chunk_index": 9,
+          "preview": "III. THÔNG BÁO ĐẾN NHÀ BÁN KHI TIKI THAY ĐỔI CHÍNH SÁCH Trong trường hợp thay đổi chính sách, Tiki sẽ thông báo trước tối thiểu 03 ngày tính đến ngày sự thay đổi có hiệu lực. Trong trường hợp không đồng ý với sự thay đổi, Nhà Bán thông báo trước ngày hiệu lực áp dụng của thay đổi đó cho Tiki. Mọi th"
+        },
+        {
+          "rank": 3,
+          "score": 0.6654161019825774,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 24,
+          "preview": "6. Những loại chứng từ như thế nào được Tiki chấp thuận cho việc chứng minh cho các thay đổi về giá sản phẩm của Nhà Bán là hợp lệ? Văn bản hợp lệ từ Thương hiệu/Nhà phân phối/Nhà cung cấp có hiệu lực trong vòng 03 tháng kể từ ngày phát hành. Bản scan phải có chữ ký, mộc đỏ và đóng giáp lai (nếu gồm"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-quy-dinh-gia-san-pham",
+      "top_k_hit": true,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.7969802551599641,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 10,
+          "preview": "1. Đối với các sản phẩm không cài đặt khuyến mãi Tránh việc cài đặt giá quá cao so với các sản phẩm cùng ngành hàng Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng) Đối với trường hợp sản phẩm có nhiều lựa chọn, giá của từng lựa chọn không được chênh lệch nhau quá 20%."
+        },
+        {
+          "rank": 2,
+          "score": 0.7370786504994955,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 29,
+          "preview": "11. Ví dụ về các trường hợp vi phạm về giá? Trường hợp 4: Nhà Bán tăng giá bán một cách bất hợp lý trước khi tham gia chương trình khuyến mãi. Ví dụ: Giá bán sản phẩm dưới đây trước khi tham gia chương trình khuyến mãi là 44.000 đ, sau đó, Nhà Bán tăng giá bán từ 44.000 đ lên 120.000 đ, và đặt giá g"
+        },
+        {
+          "rank": 3,
+          "score": 0.7073147966764772,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 11,
+          "preview": "2. Đối với các sản phẩm được cài đặt giảm giá tự tạo bởi Nhà Bán Thời gian sản phẩm chạy giảm giá không quá 180 ngày. Sau thời gian trên, giá hiển thị sẽ là giá bán sản phẩm (không áp dụng mức giảm giá nào). Các sản phẩm được cài đặt giá giảm tự tạo bởi Nhà Bán chỉ được có mức giảm tối đa 50% so với"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+      "metadata_filter": {
+        "customer_role": "seller"
+      },
+      "expected_document_id": "tiki-kho-tra-hang",
+      "top_k_hit": true,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.5717523328438496,
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_index": 1,
+          "preview": "# Quy trình tạo kho trả hàng ● Câu hỏi thường gặp về xử lý đổi - trả - bảo hành ● Mẹo quản lý hiệu quả các yêu cầu đổi trả bảo hành từ Khách Hàng ● Quy định xử lý khiếu nại Việc nắm rõ quy trình tạo kho trả hàng sẽ giúp việc trả hàng hóa cho Nhà Bán được đúng địa chỉ, đảm bảo cam kết về thời gian tr"
+        },
+        {
+          "rank": 2,
+          "score": 0.551262664178074,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 5,
+          "preview": "III. CHỈNH SỬA GIÁ SẢN PHẨM"
+        },
+        {
+          "rank": 3,
+          "score": 0.5160133974304136,
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_index": 5,
+          "preview": "II. HƯỚNG DẪN TẠO KHO TRẢ HÀNG Nhà Bán cần tạo Kho trả hàng với đầy đủ 03 thông tin sau: Kho Tiki để Nhà Bán đến nhận hàng trả (với hàng hóa lưu kho Tiki theo mô hình FBT). Địa chỉ Nhà Bán để Tiki tới trả hàng (dành cho các mô hình khác ngoại trừ mô hình FBT). Thông tin người nhận hàng (gồm tên, số "
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "query": "Nêu 5 từ hoặc cụm từ không được dùng trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe, Mẹ và bé hoặc Bách Hóa Online.",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-tu-khoa-noi-dung-san-pham",
+      "top_k_hit": true,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.5219883405080167,
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_index": 3,
+          "preview": "II. QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM Đối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà Bán không được sử dụng những từ sau trong nội dung sản phẩm: Không hợp lệ Hợp lệ Diệt virus Ngăn ngừa virus Chữa Hỗ trợ chữa trị Giảm cân Hỗ trợ giảm cân Giảm kích thước cơ thể H"
+        },
+        {
+          "rank": 2,
+          "score": 0.44337350570038137,
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_index": 3,
+          "preview": "I. MẸO CHUẨN BỊ HÀNG HOÁ TRƯỚC KHI GIAO Bổ sung mô tả sản phẩm chi tiết hơn, thay vì chỉ lấy thông tin có sẵn và đăng ảnh thực tế sản phẩm. Tham khảo Cẩm nang “Tối ưu sản phẩm – Thăng hạng gian hàng”"
+        },
+        {
+          "rank": 3,
+          "score": 0.3486990676820553,
+          "document_id": "tiki-tieu-chuan-san-pham",
+          "chunk_index": 9,
+          "preview": "II. HƯỚNG CẢI THIỆN CHẤT LƯỢNG SẢN PHẨM Không nói quá sự thật về tác dụng, chất lượng sản phẩm. Theo dõi phản hồi, nhận xét về sản phẩm để kịp thời điều chỉnh nội dung sản phẩm và phù hợp với sản phẩm thực tế, đặc biệt với các sản phẩm được Nhà sản xuất thay đổi mẫu mã, bao bì."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì và trong thời hạn nào?",
+      "metadata_filter": null,
+      "expected_document_id": "tiki-doi-tra-bao-hanh",
+      "top_k_hit": false,
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.7212128343597554,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 11,
+          "preview": "2. Đối với các sản phẩm được cài đặt giảm giá tự tạo bởi Nhà Bán Thời gian sản phẩm chạy giảm giá không quá 180 ngày. Sau thời gian trên, giá hiển thị sẽ là giá bán sản phẩm (không áp dụng mức giảm giá nào). Các sản phẩm được cài đặt giá giảm tự tạo bởi Nhà Bán chỉ được có mức giảm tối đa 50% so với"
+        },
+        {
+          "rank": 2,
+          "score": 0.6865898123488067,
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_index": 21,
+          "preview": "4. Đối với sản phẩm đã có vi phạm về giá và bị khóa vĩnh viễn trước đó, nếu Nhà Bán điều chỉnh lại mức giá đúng thì sản phẩm đó có được mở khóa không? Tùy theo mức độ vi phạm mà sản phẩm có thể được mở lại hoặc không mở lại."
+        },
+        {
+          "rank": 3,
+          "score": 0.6394235534755279,
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_index": 6,
+          "preview": "III. LƯU Ý Trong trường hợp không tạo Kho trả hàng, gian hàng của Nhà Bán có thể phát sinh các vấn đề sau: Hàng hóa cần hoàn trả về cho Nhà Bán sẽ bị gián đoạn và Tiki không đủ thông tin để luân chuyển hàng hóa về địa chỉ Kho Tiki mà Nhà Bán có thể đến rút hàng. Khi quá thời gian lưu kho nhưng Tiki "
+        }
+      ]
+    }
+  ]
+}

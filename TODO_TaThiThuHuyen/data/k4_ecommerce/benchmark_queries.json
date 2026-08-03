@@ -1,0 +1,59 @@
+{
+  "dataset": "k4_ecommerce",
+  "language": "vi",
+  "source_folder": "data/k4_ecommerce",
+  "queries": [
+    {
+      "id": 1,
+      "type": "so_lieu",
+      "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+      "gold_answer": "Tiki sẽ phản hồi tại Seller Center trong 03–05 ngày làm việc.",
+      "document_id": "tiki-doi-tra-bao-hanh",
+      "document_file": "tiki-doi-tra-bao-hanh.md",
+      "chunk_expectation": "Phần IV, câu nói về thời gian phản hồi khi Nhà Bán bấm khiếu nại.",
+      "filter_required": false
+    },
+    {
+      "id": 2,
+      "type": "dieu_kien",
+      "query": "Giá bán không khuyến mãi có được thấp hơn 1.000 đồng không?",
+      "gold_answer": "Không. Giá bán không được thấp hơn 1.000 đồng, ngoại trừ sản phẩm quà tặng.",
+      "document_id": "tiki-quy-dinh-gia-san-pham",
+      "document_file": "tiki-quy-dinh-gia-san-pham.md",
+      "chunk_expectation": "Mục IV.1, phần quy định về các sản phẩm không cài đặt khuyến mãi.",
+      "filter_required": false
+    },
+    {
+      "id": 3,
+      "type": "quy_trinh",
+      "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+      "gold_answer": "Bước 1, vào Seller Center bằng Thông tin nhà bán > Chi tiết hoặc Kho & hàng tồn > Thông tin kho nhà bán. Bước 2, tại phần thông tin kho, chọn Chi tiết rồi Tạo kho hàng mới. Bước 3, điền thông tin kho, chọn loại kho trả hàng và người phụ trách, sau đó chọn Tạo kho mới.",
+      "document_id": "tiki-kho-tra-hang",
+      "document_file": "tiki-kho-tra-hang.md",
+      "chunk_expectation": "Phần II, hướng dẫn tạo kho trả hàng.",
+      "filter_required": true,
+      "filter_field": "customer_role",
+      "filter_value": "seller"
+    },
+    {
+      "id": 4,
+      "type": "liet_ke",
+      "query": "Nêu 5 từ hoặc cụm từ không được dùng trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe, Mẹ và bé hoặc Bách Hóa Online.",
+      "gold_answer": "Năm ví dụ là: Diệt virus; Chữa; Giảm cân; Diệt nấm; Trị cellulite.",
+      "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+      "document_file": "tiki-tu-khoa-noi-dung-san-pham.md",
+      "chunk_expectation": "Phần II, danh sách từ khóa vi phạm cho các ngành hàng được nêu.",
+      "filter_required": false
+    },
+    {
+      "id": 5,
+      "type": "ngoai_le",
+      "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì và trong thời hạn nào?",
+      "gold_answer": "Nhà Bán phải chọn Khiếu nại tại Seller Center trong 02 ngày làm việc kể từ khi mã đổi trả chuyển sang trạng thái Trả hàng thành công.",
+      "document_id": "tiki-doi-tra-bao-hanh",
+      "document_file": "tiki-doi-tra-bao-hanh.md",
+      "chunk_expectation": "Phần III, đoạn nói về xử lý khi sản phẩm hoàn trả có vấn đề.",
+      "filter_required": false
+    }
+  ]
+}
