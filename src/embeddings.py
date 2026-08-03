@@ -59,5 +59,4 @@ class OpenAIEmbedder:
         response = self.client.embeddings.create(model=self.model_name, input=text)
         return [float(value) for value in response.data[0].embedding]
 
-
 _mock_embed = MockEmbedder()

@@ -1,3 +1,8 @@
 doc_id,file_path,title,source_url,retrieved_at,document_version,license_or_permission
-k4-returns-policy,data/k4_ecommerce/returns-policy.md,Chính sách đổi trả,https://example.com/chinh-sach/doi-tra,2026-08-02,2026.1,example-template-replace-me
-k4-seller-listing,data/k4_ecommerce/seller-listing.md,Quy định đăng bán,https://example.com/nguoi-ban/dang-ban,2026-08-02,2026.1,example-template-replace-me
+tiki-doi-tra-bao-hanh,data\chinh_sach_tmdt_tiki\tiki-doi-tra-bao-hanh.md,Quản lý yêu cầu đổi trả và bảo hành từ Khách Hàng,https://hocvien.tiki.vn/faq/meo-quan-ly-hieu-qua-cac-yeu-cau-doi-tra-bao-hanh-tu-khach-hang/,2026-08-03,not-stated,public-page
+tiki-kho-tra-hang,data\chinh_sach_tmdt_tiki\tiki-kho-tra-hang.md,Quy trình tạo kho trả hàng,https://hocvien.tiki.vn/faq/huong-dan-tao-kho-tra-hang/,2026-08-03,not-stated,public-page
+tiki-noi-dung-mo-ta-san-pham,data\chinh_sach_tmdt_tiki\tiki-noi-dung-mo-ta-san-pham.md,Quy chuẩn về nội dung mô tả sản phẩm,https://hocvien.tiki.vn/faq/quy-chuan-ve-noi-dung-dang-san-pham-cho-tung-nganh-hang/,2026-08-03,not-stated,public-page
+tiki-quy-dinh-gia-san-pham,data\chinh_sach_tmdt_tiki\tiki-quy-dinh-gia-san-pham.md,Quy định và hướng dẫn cài đặt giá sản phẩm,https://hocvien.tiki.vn/faq/huong-dan-dieu-chinh-gia-san-pham/,2026-08-03,not-stated,public-page
+tiki-quyen-nghia-vu-nha-ban,data\chinh_sach_tmdt_tiki\tiki-quyen-nghia-vu-nha-ban.md,Quyền và nghĩa vụ của Nhà Bán và Tiki,https://hocvien.tiki.vn/faq/quyen-va-nghia-vu-cua-nha-ban-va-tiki/,2026-08-03,not-stated,public-page
+tiki-tieu-chuan-san-pham,data\chinh_sach_tmdt_tiki\tiki-tieu-chuan-san-pham.md,Quy định về tiêu chuẩn sản phẩm kinh doanh trên Tiki,https://hocvien.tiki.vn/faq/quy-dinh-ve-tieu-chuan-san-pham-kinh-doanh-tren-tiki/,2026-08-03,not-stated,public-page
+tiki-tu-khoa-noi-dung-san-pham,data\chinh_sach_tmdt_tiki\tiki-tu-khoa-noi-dung-san-pham.md,Quy định từ khóa trong nội dung sản phẩm,https://hocvien.tiki.vn/faq/quy-dinh-tu-khoa-trong-noi-dung-san-pham/,2026-08-03,not-stated,public-page

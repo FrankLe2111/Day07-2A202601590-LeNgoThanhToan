@@ -23,6 +23,9 @@ EmbeddingStore = getattr(_m, 'EmbeddingStore')
 KnowledgeBaseAgent = getattr(_m, 'KnowledgeBaseAgent')
 _mock_embed = getattr(_m, '_mock_embed')
 FixedSizeChunker = getattr(_m, 'FixedSizeChunker')
+SemanticChunker = getattr(_m, 'SemanticChunker')
+AgenticChunker = getattr(_m, 'AgenticChunker')
+ParentChildChunker = getattr(_m, 'ParentChildChunker')
 SentenceChunker = getattr(_m, 'SentenceChunker')
 RecursiveChunker = getattr(_m, 'RecursiveChunker')
 ChunkingStrategyComparator = getattr(_m, 'ChunkingStrategyComparator')
@@ -52,7 +55,7 @@ class TestProjectStructure(unittest.TestCase):
 class TestClassBasedInterfaces(unittest.TestCase):
 
     def test_chunker_classes_exist(self):
-        self.assertTrue(all([FixedSizeChunker, SentenceChunker, RecursiveChunker, ChunkingStrategyComparator]))
+        self.assertTrue(all([FixedSizeChunker, SentenceChunker, RecursiveChunker, SemanticChunker, AgenticChunker, ParentChildChunker, ChunkingStrategyComparator]))
 
     def test_mock_embedder_exists(self):
         embedder = MockEmbedder()
@@ -142,6 +145,44 @@ class TestRecursiveChunker(unittest.TestCase):
         text = "paragraph one\n\nparagraph two\n\nparagraph three"
         chunks = RecursiveChunker(separators=["\n\n"], chunk_size=200).chunk(text)
         self.assertGreaterEqual(len(chunks), 1)
+
+
+class TestSemanticChunker(unittest.TestCase):
+
+    def test_returns_list(self):
+        chunks = SemanticChunker(max_chunk_size=120).chunk(SAMPLE_TEXT)
+        self.assertIsInstance(chunks, list)
+
+    def test_chunks_are_non_empty_strings(self):
+        chunks = SemanticChunker(max_chunk_size=120).chunk(SAMPLE_TEXT)
+        self.assertTrue(all(isinstance(chunk, str) and chunk.strip() for chunk in chunks))
+
+
+class TestAgenticChunker(unittest.TestCase):
+
+    def test_returns_list(self):
+        chunks = AgenticChunker(max_chunk_size=120).chunk(SAMPLE_TEXT)
+        self.assertIsInstance(chunks, list)
+
+    def test_breaks_on_structure(self):
+        text = "Bước 1: làm việc này. Bước 2: làm việc khác. Lưu ý: kiểm tra lại."
+        chunks = AgenticChunker(max_chunk_size=120).chunk(text)
+        self.assertGreaterEqual(len(chunks), 2)
+
+
+class TestParentChildChunker(unittest.TestCase):
+
+    def test_returns_child_list(self):
+        chunks = ParentChildChunker(parent_chunk_size=150, child_chunk_size=50).chunk(SAMPLE_TEXT)
+        self.assertIsInstance(chunks, list)
+
+    def test_exposes_hierarchy(self):
+        chunker = ParentChildChunker(parent_chunk_size=150, child_chunk_size=50)
+        hierarchy = chunker.chunk_hierarchy(SAMPLE_TEXT)
+        self.assertIn('parents', hierarchy)
+        self.assertIn('children', hierarchy)
+        self.assertIsInstance(chunker.last_parent_chunks, list)
+        self.assertIsInstance(chunker.last_children_by_parent, list)
 
 
 class TestEmbeddingStore(unittest.TestCase):
@@ -263,6 +304,9 @@ class TestCompareChunkingStrategies(unittest.TestCase):
         self.assertIn('fixed_size', result)
         self.assertIn('by_sentences', result)
         self.assertIn('recursive', result)
+        self.assertIn('semantic', result)
+        self.assertIn('agentic', result)
+        self.assertIn('parent_child', result)
 
     def test_each_strategy_has_count_and_avg_length(self):
         result = ChunkingStrategyComparator().compare(self.SAMPLE_TEXT, chunk_size=100)

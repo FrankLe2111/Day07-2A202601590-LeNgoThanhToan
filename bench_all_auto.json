@@ -1,0 +1,596 @@
+{
+  "dataset": "k4_ecommerce",
+  "embedder": "auto",
+  "chunk_size": 400,
+  "top_k": 1,
+  "runs": [
+    {
+      "dataset": "k4_ecommerce",
+      "chunker": "fixed_size",
+      "embedder": "auto",
+      "chunk_size": 400,
+      "top_k": 1,
+      "collection_size": 128,
+      "chunk_count": 128,
+      "results": [
+        {
+          "id": 1,
+          "type": "so_lieu",
+          "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+          "gold_answer": "trong 03 – 05 ngày làm việc.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần IV, câu nói về thời gian phản hồi khi Nhà Bán bấm khiếu nại.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.822229,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "khi gửi. Xem quy định đóng gói hàng hóa tại đây – IV. TIKI HỖ TRỢ NHÀ BÁN NHƯ THẾ NÀO? Tiki khuyến khích Nhà Bán Hình..."
+            }
+          ],
+          "agent_answer": "03 – 05 ngày làm việc"
+        },
+        {
+          "id": 2,
+          "type": "dieu_kien",
+          "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+          "gold_answer": "Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng).",
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_expectation": "Mục IV.1, phần quy định về các sản phẩm không cài đặt khuyến mãi.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.824562,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "á quá cao so với các sản phẩm cùng ngành hàng Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng..."
+            }
+          ],
+          "agent_answer": "á quá cao so với các sản phẩm cùng ngành hàng\n\nGiá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng)\n\nĐối với trường hợp sản phẩm có nhiều lựa chọn, giá của từng lựa chọn không được chênh lệch nhau quá 20%."
+        },
+        {
+          "id": 3,
+          "type": "quy_trinh",
+          "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+          "gold_answer": "Bước 1: Có 2 cách để tạo kho trả hàng... Bước 2: ... bấm Tạo kho hàng mới. Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho...",
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_expectation": "Phần II, hướng dẫn tạo kho trả hàng.",
+          "metadata_filter": {
+            "customer_role": "seller"
+          },
+          "retrieved": [
+            {
+              "score": 0.640972,
+              "doc_id": "tiki-kho-tra-hang",
+              "preview": "Thông tin kho hàng, mô hình vận hành và liên lạc, bấm chọn Chi tiết. Tại mục Kho lấy và trả hàng, bấm Tạo kho hàng mớ..."
+            }
+          ],
+          "agent_answer": "Tại mục Kho lấy và trả hàng, bấm Tạo kho hàng mới."
+        },
+        {
+          "id": 4,
+          "type": "liet_ke",
+          "query": "Liệt kê 5 từ hoặc cụm từ bị cấm trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe/Mẹ và bé/Bách Hóa Online.",
+          "gold_answer": "Không hợp lệ; Diệt virus; Giảm cân; Hỗ trợ giảm cân; Trị cellulite.",
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_expectation": "Phần II, danh sách từ khóa vi phạm cho các ngành hàng được nêu.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.558468,
+              "doc_id": "tiki-tu-khoa-noi-dung-san-pham",
+              "preview": "m chính sách sẽ bị tắt sản phẩm và khóa gian hàng. Mỗi lần vi phạm sẽ bị tắt sản phẩm và khóa gian hàng trên nền tảng..."
+            }
+          ],
+          "agent_answer": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM\n\nĐối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà Bán không được sử dụng những từ sau trong nội dung sản phẩm:\n\nKhông hợp lệ\n\nHợp lệ\n\nDiệt virus\n\nNgăn ngừa virus\n\nChữa\n\nHỗ trợ chữa trị\n\nGiảm cân\n\nHỗ t"
+        },
+        {
+          "id": 5,
+          "type": "ngoai_le",
+          "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì?",
+          "gold_answer": "Nhà Bán chọn Khiếu nại tại Seller Center trong 02 ngày làm việc kể từ khi mã đổi trả có trạng thái Trả hàng thành công.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần III, đoạn nói về xử lý khi sản phẩm hoàn trả có vấn đề.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.703365,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "khí…) để hạn chế bể/vỡ. Nếu Nhà Bán thường phát sinh khiếu nại do bể/vỡ thì nên tìm hiểu nguyên nhân và cải tiến quy ..."
+            }
+          ],
+          "agent_answer": "Nếu Nhà Bán thường phát sinh khiếu nại do bể/vỡ thì nên tìm hiểu nguyên nhân và cải tiến quy trình đóng gói."
+        }
+      ]
+    },
+    {
+      "dataset": "k4_ecommerce",
+      "chunker": "sentence",
+      "embedder": "auto",
+      "chunk_size": 400,
+      "top_k": 1,
+      "collection_size": 109,
+      "chunk_count": 109,
+      "results": [
+        {
+          "id": 1,
+          "type": "so_lieu",
+          "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+          "gold_answer": "trong 03 – 05 ngày làm việc.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần IV, câu nói về thời gian phản hồi khi Nhà Bán bấm khiếu nại.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.803382,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "Xem quy định đóng gói hàng hóa tại đây – IV. TIKI HỖ TRỢ NHÀ BÁN NHƯ THẾ NÀO? Tiki khuyến khích Nhà Bán Hình ảnh minh..."
+            }
+          ],
+          "agent_answer": "03 – 05 ngày làm việc"
+        },
+        {
+          "id": 2,
+          "type": "dieu_kien",
+          "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+          "gold_answer": "Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng).",
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_expectation": "Mục IV.1, phần quy định về các sản phẩm không cài đặt khuyến mãi.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.798608,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "IV. QUY ĐỊNH VỀ GIÁ SẢN PHẨM 1. Đối với các sản phẩm không cài đặt khuyến mãi Tránh việc cài đặt giá quá cao so với c..."
+            }
+          ],
+          "agent_answer": "Đối với các sản phẩm không cài đặt khuyến mãi\n\nTránh việc cài đặt giá quá cao so với các sản phẩm cùng ngành hàng\n\nGiá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng)\n\nĐối với trường hợp sản phẩm có nhiều lựa chọn, giá của từng lựa chọn không được chênh lệch nhau quá 20%."
+        },
+        {
+          "id": 3,
+          "type": "quy_trinh",
+          "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+          "gold_answer": "Bước 1: Có 2 cách để tạo kho trả hàng... Bước 2: ... bấm Tạo kho hàng mới. Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho...",
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_expectation": "Phần II, hướng dẫn tạo kho trả hàng.",
+          "metadata_filter": {
+            "customer_role": "seller"
+          },
+          "retrieved": [
+            {
+              "score": 0.629862,
+              "doc_id": "tiki-kho-tra-hang",
+              "preview": "Bước 2: Tại mục Thông tin kho hàng, mô hình vận hành và liên lạc, bấm chọn Chi tiết. Tại mục Kho lấy và trả hàng, bấm..."
+            }
+          ],
+          "agent_answer": "Tại mục Kho lấy và trả hàng, bấm Tạo kho hàng mới."
+        },
+        {
+          "id": 4,
+          "type": "liet_ke",
+          "query": "Liệt kê 5 từ hoặc cụm từ bị cấm trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe/Mẹ và bé/Bách Hóa Online.",
+          "gold_answer": "Không hợp lệ; Diệt virus; Giảm cân; Hỗ trợ giảm cân; Trị cellulite.",
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_expectation": "Phần II, danh sách từ khóa vi phạm cho các ngành hàng được nêu.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.492014,
+              "doc_id": "tiki-tu-khoa-noi-dung-san-pham",
+              "preview": "II. QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM Đối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý..."
+            }
+          ],
+          "agent_answer": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM\n\nĐối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà Bán không được sử dụng những từ sau trong nội dung sản phẩm:\n\nKhông hợp lệ\n\nHợp lệ\n\nDiệt virus\n\nNgăn ngừa virus\n\nChữa\n\nHỗ trợ chữa trị\n\nGiảm cân\n\nHỗ trợ giảm cân\n\nGiảm kích thước cơ thể\n\nHỗ trợ giảm kích thước cơ thể\n\nDiệt nấm\n\nNgăn ngừa nấm\n\nGiảm mỡ\n\nHỗ trợ giảm mỡ\n\nGiảm béo\n\nHỗ trợ giảm béo\n\nTrị cellulite\n\nHỗ trợ giảm cellulite\n\nNâng ngực\n\nSăn chắc\n\nTetracyline\n\nKHÔNG SỬ DỤNG\n\nKhông tiết mồ hôi\n\nHạn chế tiết mồ hôi\n\nLoại bỏ gàu vĩnh viễn\n\nNgăn ngừa gàu\n\nChống rụng tóc\n\nNgăn ngừa rụng tóc\n\nTê\n\nKHÔNG SỬ DỤNG\n\nGây tê\n\nKHÔNG SỬ DỤNG\n\nTrị\n\nHỗ trợ điều trị\n\nLoại bỏ\n\nGiảm thiểu\n\nGiảm\n\nHỗ trợ giảm\n\nNội dung này có hữu ích với bạn không?"
+        },
+        {
+          "id": 5,
+          "type": "ngoai_le",
+          "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì?",
+          "gold_answer": "Nhà Bán chọn Khiếu nại tại Seller Center trong 02 ngày làm việc kể từ khi mã đổi trả có trạng thái Trả hàng thành công.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần III, đoạn nói về xử lý khi sản phẩm hoàn trả có vấn đề.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.716943,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "Sau khi đóng gói, đảm bảo kiện hàng không rung lắc, sản phẩm được bảo vệ bởi các lớp lót (bong bóng khí…) để hạn chế ..."
+            }
+          ],
+          "agent_answer": "Nếu Nhà Bán thường phát sinh khiếu nại do bể/vỡ thì nên tìm hiểu nguyên nhân và cải tiến quy trình đóng gói."
+        }
+      ]
+    },
+    {
+      "dataset": "k4_ecommerce",
+      "chunker": "recursive",
+      "embedder": "auto",
+      "chunk_size": 400,
+      "top_k": 1,
+      "collection_size": 135,
+      "chunk_count": 135,
+      "results": [
+        {
+          "id": 1,
+          "type": "so_lieu",
+          "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+          "gold_answer": "trong 03 – 05 ngày làm việc.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần IV, câu nói về thời gian phản hồi khi Nhà Bán bấm khiếu nại.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.893438,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi tại Seller Center, mục Đơn hàng > Đổi trả bảo hành > Tab Đang xử lý khiếu..."
+            }
+          ],
+          "agent_answer": "03 – 05 ngày làm việc"
+        },
+        {
+          "id": 2,
+          "type": "dieu_kien",
+          "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+          "gold_answer": "Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng).",
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_expectation": "Mục IV.1, phần quy định về các sản phẩm không cài đặt khuyến mãi.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.807632,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "IV. QUY ĐỊNH VỀ GIÁ SẢN PHẨM 1. Đối với các sản phẩm không cài đặt khuyến mãi Tránh việc cài đặt giá quá cao so với c..."
+            }
+          ],
+          "agent_answer": "Đối với các sản phẩm không cài đặt khuyến mãi\n\nTránh việc cài đặt giá quá cao so với các sản phẩm cùng ngành hàng\n\nGiá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng)\n\nĐối với trường hợp sản phẩm có nhiều lựa chọn, giá của từng lựa chọn không được chênh lệch nhau quá 20%."
+        },
+        {
+          "id": 3,
+          "type": "quy_trinh",
+          "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+          "gold_answer": "Bước 1: Có 2 cách để tạo kho trả hàng... Bước 2: ... bấm Tạo kho hàng mới. Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho...",
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_expectation": "Phần II, hướng dẫn tạo kho trả hàng.",
+          "metadata_filter": {
+            "customer_role": "seller"
+          },
+          "retrieved": [
+            {
+              "score": 0.591255,
+              "doc_id": "tiki-kho-tra-hang",
+              "preview": "Bước 2: Tại mục Thông tin kho hàng, mô hình vận hành và liên lạc, bấm chọn Chi tiết. Tại mục Kho lấy và trả hàng, bấm..."
+            }
+          ],
+          "agent_answer": "Tại mục Kho lấy và trả hàng, bấm Tạo kho hàng mới."
+        },
+        {
+          "id": 4,
+          "type": "liet_ke",
+          "query": "Liệt kê 5 từ hoặc cụm từ bị cấm trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe/Mẹ và bé/Bách Hóa Online.",
+          "gold_answer": "Không hợp lệ; Diệt virus; Giảm cân; Hỗ trợ giảm cân; Trị cellulite.",
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_expectation": "Phần II, danh sách từ khóa vi phạm cho các ngành hàng được nêu.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.58598,
+              "doc_id": "tiki-tu-khoa-noi-dung-san-pham",
+              "preview": "Mỗi lần vi phạm sẽ bị tắt sản phẩm và khóa gian hàng trên nền tảng Tiki. II. QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM..."
+            }
+          ],
+          "agent_answer": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM\n\nĐối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà Bán không được sử dụng những từ sau trong nội dung sản phẩm:\n\nKhông hợp lệ\n\nHợp lệ\n\nDiệt virus\n\nNgăn ngừa virus\n\nChữa\n\nHỗ trợ chữa trị\n\nGiảm cân\n\nHỗ trợ giảm cân\n\nGiảm kích thước cơ thể"
+        },
+        {
+          "id": 5,
+          "type": "ngoai_le",
+          "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì?",
+          "gold_answer": "Nhà Bán chọn Khiếu nại tại Seller Center trong 02 ngày làm việc kể từ khi mã đổi trả có trạng thái Trả hàng thành công.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần III, đoạn nói về xử lý khi sản phẩm hoàn trả có vấn đề.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.662142,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "Nhà Bán xem chi tiết Chính sách về giá sản phẩm và hình thức xử lý các vi phạm liên quan tại đây (mục Chính sách về g..."
+            }
+          ],
+          "agent_answer": "Nhà Bán xem chi tiết Chính sách về giá sản phẩm và hình thức xử lý các vi phạm liên quan tại đây (mục Chính sách về giá sản phẩm)."
+        }
+      ]
+    },
+    {
+      "dataset": "k4_ecommerce",
+      "chunker": "semantic",
+      "embedder": "auto",
+      "chunk_size": 400,
+      "top_k": 1,
+      "collection_size": 232,
+      "chunk_count": 232,
+      "results": [
+        {
+          "id": 1,
+          "type": "so_lieu",
+          "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+          "gold_answer": "trong 03 – 05 ngày làm việc.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần IV, câu nói về thời gian phản hồi khi Nhà Bán bấm khiếu nại.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.813805,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "Trường hợp Nhà Bán khiếu nại Tiki hoàn tiền nhanh cho Khách Hàng chưa chính xác, vui lòng liên hệ với Tiki trong vòng..."
+            }
+          ],
+          "agent_answer": "Trường hợp Nhà Bán khiếu nại Tiki hoàn tiền nhanh cho Khách Hàng chưa chính xác, vui lòng liên hệ với Tiki trong vòng 14 ngày kể từ thời điểm Tiki thanh toán sao kê cho Nhà Bán."
+        },
+        {
+          "id": 2,
+          "type": "dieu_kien",
+          "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+          "gold_answer": "Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng).",
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_expectation": "Mục IV.1, phần quy định về các sản phẩm không cài đặt khuyến mãi.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.81827,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "QUY ĐỊNH VỀ GIÁ SẢN PHẨM 1. Đối với các sản phẩm không cài đặt khuyến mãi Tránh việc cài đặt giá quá cao so với các s..."
+            }
+          ],
+          "agent_answer": "Đối với các sản phẩm không cài đặt khuyến mãi\n\nTránh việc cài đặt giá quá cao so với các sản phẩm cùng ngành hàng\n\nGiá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng)\n\nĐối với trường hợp sản phẩm có nhiều lựa chọn, giá của từng lựa chọn không được chênh lệch nhau quá 20%."
+        },
+        {
+          "id": 3,
+          "type": "quy_trinh",
+          "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+          "gold_answer": "Bước 1: Có 2 cách để tạo kho trả hàng... Bước 2: ... bấm Tạo kho hàng mới. Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho...",
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_expectation": "Phần II, hướng dẫn tạo kho trả hàng.",
+          "metadata_filter": {
+            "customer_role": "seller"
+          },
+          "retrieved": [
+            {
+              "score": 0.658152,
+              "doc_id": "tiki-kho-tra-hang",
+              "preview": "Nhà Bán thao tác như sau: Bước 1: Có 2 cách để tạo kho trả hàng: Cách 1: Tại Seller Center, Nhà Bán chọn Thông tin nh..."
+            }
+          ],
+          "agent_answer": "Tại mục Kho lấy và trả hàng, bấm Tạo kho hàng mới."
+        },
+        {
+          "id": 4,
+          "type": "liet_ke",
+          "query": "Liệt kê 5 từ hoặc cụm từ bị cấm trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe/Mẹ và bé/Bách Hóa Online.",
+          "gold_answer": "Không hợp lệ; Diệt virus; Giảm cân; Hỗ trợ giảm cân; Trị cellulite.",
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_expectation": "Phần II, danh sách từ khóa vi phạm cho các ngành hàng được nêu.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.455096,
+              "doc_id": "tiki-tu-khoa-noi-dung-san-pham",
+              "preview": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM Đối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà..."
+            }
+          ],
+          "agent_answer": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM\n\nĐối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà Bán không được sử dụng những từ sau trong nội dung sản phẩm:\n\nKhông hợp lệ\n\nHợp lệ\n\nDiệt virus\n\nNgăn ngừa virus\n\nChữa\n\nHỗ trợ chữa trị\n\nGiảm cân\n\nHỗ trợ giảm cân\n\nGiảm kích thước cơ thể\n\nHỗ trợ giảm kích thước cơ thể\n\nDiệt nấm\n\nNgăn ngừa nấm\n\nGiảm mỡ\n\nHỗ trợ giảm mỡ\n\nGiảm béo\n\nHỗ trợ giảm béo\n\nTrị cellulite\n\nHỗ trợ giảm cellulite\n\nNâng ngực\n\nSăn chắc\n\nTetracyline\n\nKHÔNG SỬ DỤNG\n\nKhông tiết mồ hôi\n\nHạn chế tiết mồ hôi\n\nLoại bỏ gàu vĩnh viễn\n\nNgăn ngừa gàu\n\nChống rụng tóc\n\nNgăn ngừa rụng tóc\n\nTê\n\nKHÔNG SỬ DỤNG\n\nGây tê\n\nKHÔNG SỬ DỤNG\n\nTrị\n\nHỗ trợ điều trị\n\nLoại bỏ\n\nGiảm thiểu\n\nGiảm\n\nHỗ trợ giảm\n\nNội dung này có hữu ích với bạn không?"
+        },
+        {
+          "id": 5,
+          "type": "ngoai_le",
+          "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì?",
+          "gold_answer": "Nhà Bán chọn Khiếu nại tại Seller Center trong 02 ngày làm việc kể từ khi mã đổi trả có trạng thái Trả hàng thành công.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần III, đoạn nói về xử lý khi sản phẩm hoàn trả có vấn đề.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.709563,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "Trong quá trình rà soát, Tiki nhận thấy Nhà Bán bán sản phẩm có giá không phù hợp và cao bất thường nhưng Nhà Bán có ..."
+            }
+          ],
+          "agent_answer": "Trong quá trình rà soát, Tiki nhận thấy Nhà Bán bán sản phẩm có giá không phù hợp và cao bất thường nhưng Nhà Bán có chứng từ chứng minh mức giá này là hợp lý thì Nhà Bán cần làm gì?"
+        }
+      ]
+    },
+    {
+      "dataset": "k4_ecommerce",
+      "chunker": "agentic",
+      "embedder": "auto",
+      "chunk_size": 400,
+      "top_k": 1,
+      "collection_size": 471,
+      "chunk_count": 471,
+      "results": [
+        {
+          "id": 1,
+          "type": "so_lieu",
+          "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+          "gold_answer": "trong 03 – 05 ngày làm việc.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần IV, câu nói về thời gian phản hồi khi Nhà Bán bấm khiếu nại.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.868608,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi tại Seller Center, mục Đơn hàng > Đổi trả bảo hành > Tab Đang xử lý khiếu..."
+            }
+          ],
+          "agent_answer": "03 – 05 ngày làm việc"
+        },
+        {
+          "id": 2,
+          "type": "dieu_kien",
+          "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+          "gold_answer": "Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng).",
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_expectation": "Mục IV.1, phần quy định về các sản phẩm không cài đặt khuyến mãi.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.796419,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "Đối với các sản phẩm không cài đặt khuyến mãi Tránh việc cài đặt giá quá cao so với các sản phẩm cùng ngành hàng Giá ..."
+            }
+          ],
+          "agent_answer": "Đối với các sản phẩm không cài đặt khuyến mãi Tránh việc cài đặt giá quá cao so với các sản phẩm cùng ngành hàng Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng) Đối với trường hợp sản phẩm có nhiều lựa chọn, giá của từng lựa chọn không được chênh lệch nhau quá 20%."
+        },
+        {
+          "id": 3,
+          "type": "quy_trinh",
+          "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+          "gold_answer": "Bước 1: Có 2 cách để tạo kho trả hàng... Bước 2: ... bấm Tạo kho hàng mới. Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho...",
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_expectation": "Phần II, hướng dẫn tạo kho trả hàng.",
+          "metadata_filter": {
+            "customer_role": "seller"
+          },
+          "retrieved": [
+            {
+              "score": 0.740282,
+              "doc_id": "tiki-kho-tra-hang",
+              "preview": "Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho."
+            }
+          ],
+          "agent_answer": "Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho."
+        },
+        {
+          "id": 4,
+          "type": "liet_ke",
+          "query": "Liệt kê 5 từ hoặc cụm từ bị cấm trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe/Mẹ và bé/Bách Hóa Online.",
+          "gold_answer": "Không hợp lệ; Diệt virus; Giảm cân; Hỗ trợ giảm cân; Trị cellulite.",
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_expectation": "Phần II, danh sách từ khóa vi phạm cho các ngành hàng được nêu.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.650232,
+              "doc_id": "tiki-tu-khoa-noi-dung-san-pham",
+              "preview": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM Đối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà..."
+            }
+          ],
+          "agent_answer": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM Đối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà Bán không được sử dụng những từ sau trong nội dung sản phẩm:"
+        },
+        {
+          "id": 5,
+          "type": "ngoai_le",
+          "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì?",
+          "gold_answer": "Nhà Bán chọn Khiếu nại tại Seller Center trong 02 ngày làm việc kể từ khi mã đổi trả có trạng thái Trả hàng thành công.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần III, đoạn nói về xử lý khi sản phẩm hoàn trả có vấn đề.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.714915,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "Nếu Nhà Bán thường phát sinh khiếu nại do bể/vỡ thì nên tìm hiểu nguyên nhân và cải tiến quy trình đóng gói."
+            }
+          ],
+          "agent_answer": "Nếu Nhà Bán thường phát sinh khiếu nại do bể/vỡ thì nên tìm hiểu nguyên nhân và cải tiến quy trình đóng gói."
+        }
+      ]
+    },
+    {
+      "dataset": "k4_ecommerce",
+      "chunker": "parent_child",
+      "embedder": "auto",
+      "chunk_size": 400,
+      "top_k": 1,
+      "collection_size": 299,
+      "chunk_count": 299,
+      "results": [
+        {
+          "id": 1,
+          "type": "so_lieu",
+          "query": "Khi Nhà Bán bấm khiếu nại, Tiki sẽ phản hồi trong bao lâu?",
+          "gold_answer": "trong 03 – 05 ngày làm việc.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần IV, câu nói về thời gian phản hồi khi Nhà Bán bấm khiếu nại.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.844973,
+              "doc_id": "tiki-doi-tra-bao-hanh",
+              "preview": "Trường hợp Nhà Bán khiếu nại Tiki hoàn tiền nhanh cho Khách Hàng chưa chính xác, vui lòng liên hệ với Tiki trong vòng..."
+            }
+          ],
+          "agent_answer": "Trường hợp Nhà Bán khiếu nại Tiki hoàn tiền nhanh cho Khách Hàng chưa chính xác, vui lòng liên hệ với Tiki trong vòng 14 ngày kể từ thời điểm Tiki thanh toán sao kê cho Nhà Bán."
+        },
+        {
+          "id": 2,
+          "type": "dieu_kien",
+          "query": "Đối với sản phẩm không cài đặt khuyến mãi, giá bán có được thấp hơn 1.000 đồng không?",
+          "gold_answer": "Giá bán không được thấp hơn 1.000 đồng (ngoại trừ các sản phẩm quà tặng).",
+          "document_id": "tiki-quy-dinh-gia-san-pham",
+          "chunk_expectation": "Mục IV.1, phần quy định về các sản phẩm không cài đặt khuyến mãi.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.775206,
+              "doc_id": "tiki-quy-dinh-gia-san-pham",
+              "preview": "như hình dưới. Nhà Bán có thể xem kết quả ở mục Thao tác. IV. QUY ĐỊNH VỀ GIÁ SẢN PHẨM 1. Đối với các sản phẩm không ..."
+            }
+          ],
+          "agent_answer": "Đối với các sản phẩm không cài đặt khuyến mãi\n\nTránh việc cài đặt giá quá cao so với các sản phẩm cùng ngàn"
+        },
+        {
+          "id": 3,
+          "type": "quy_trinh",
+          "query": "Nhà Bán thao tác thế nào để tạo kho trả hàng?",
+          "gold_answer": "Bước 1: Có 2 cách để tạo kho trả hàng... Bước 2: ... bấm Tạo kho hàng mới. Bước 3: Nhà Bán cần điền thông tin kho, chọn loại kho trả hàng và người phụ trách kho...",
+          "document_id": "tiki-kho-tra-hang",
+          "chunk_expectation": "Phần II, hướng dẫn tạo kho trả hàng.",
+          "metadata_filter": {
+            "customer_role": "seller"
+          },
+          "retrieved": [
+            {
+              "score": 0.658989,
+              "doc_id": "tiki-kho-tra-hang",
+              "preview": "ô hình vận hành và liên lạc, bấm chọn Chi tiết. Tại mục Kho lấy và trả hàng, bấm Tạo kho hàng mới. Bước 3: Nhà Bán cầ..."
+            }
+          ],
+          "agent_answer": "Tại mục Kho lấy và trả hàng, bấm Tạo kho hàng mới."
+        },
+        {
+          "id": 4,
+          "type": "liet_ke",
+          "query": "Liệt kê 5 từ hoặc cụm từ bị cấm trong nội dung sản phẩm thuộc nhóm Làm đẹp – Sức khỏe/Mẹ và bé/Bách Hóa Online.",
+          "gold_answer": "Không hợp lệ; Diệt virus; Giảm cân; Hỗ trợ giảm cân; Trị cellulite.",
+          "document_id": "tiki-tu-khoa-noi-dung-san-pham",
+          "chunk_expectation": "Phần II, danh sách từ khóa vi phạm cho các ngành hàng được nêu.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.658143,
+              "doc_id": "tiki-tu-khoa-noi-dung-san-pham",
+              "preview": "II. QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM Đối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý..."
+            }
+          ],
+          "agent_answer": "QUY ĐỊNH TỪ KHÓA TRONG NỘI DUNG SẢN PHẨM\n\nĐối với các ngành hàng Làm đẹp – Sức khỏe/Mẹ và bé/ Bách Hóa Online, Quý Nhà Bán không được sử dụng những từ sau trong nội dung sản phẩm:\n\nKhông hợp lệ\n\nH"
+        },
+        {
+          "id": 5,
+          "type": "ngoai_le",
+          "query": "Nếu sản phẩm hoàn trả có vấn đề thì Nhà Bán phải làm gì?",
+          "gold_answer": "Nhà Bán chọn Khiếu nại tại Seller Center trong 02 ngày làm việc kể từ khi mã đổi trả có trạng thái Trả hàng thành công.",
+          "document_id": "tiki-doi-tra-bao-hanh",
+          "chunk_expectation": "Phần III, đoạn nói về xử lý khi sản phẩm hoàn trả có vấn đề.",
+          "metadata_filter": null,
+          "retrieved": [
+            {
+              "score": 0.802314,
+              "doc_id": "tiki-kho-tra-hang",
+              "preview": "LƯU Ý Trong trường hợp không tạo Kho trả hàng, gian hàng của Nhà Bán có thể phát sinh các vấn đề sau:"
+            }
+          ],
+          "agent_answer": "LƯU Ý\n\nTrong trường hợp không tạo Kho trả hàng, gian hàng của Nhà Bán có thể phát sinh các vấn đề sau:"
+        }
+      ]
+    }
+  ]
+}
