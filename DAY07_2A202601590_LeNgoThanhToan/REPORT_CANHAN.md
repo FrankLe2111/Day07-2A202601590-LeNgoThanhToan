@@ -1,9 +1,9 @@
 # Báo Cáo Cá Nhân — Lab 7: Embedding & Vector Store
 
-**Họ tên:** Lê Ngô Thanh Toàn
-**Mã sinh viên:** 2A202601590
-**Nhóm:** K4 - E-commerce Policy Retrieval
-**Ngày:** 03/08/2026
+**Họ tên:** Nguyễn Đức Hưng
+**Mã sinh viên:** 2A202601936
+**Nhóm:** VinCourse
+**Ngày:** 08/04/2005
 
 > **Nộp 1 bản / sinh viên.** Phần nhóm (lựa chọn tài liệu, thiết kế chiến lược, bộ câu hỏi đánh giá, demo) nộp chung 1 bản trong `REPORT_NHOM.md`. Chi tiết thang điểm: `docs/SCORING.md`.
 
